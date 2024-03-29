@@ -1,0 +1,26 @@
+<%= form_with(model: [@item.list, @item]) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mt-1">
+    <%= f.text_field :name,placeholder: "Name" ,class:"form-control form-control-sm" ,id:"form-textfield"%>
+  </div>
+  <div class="field">
+    <%= f.datetime_field :completed_at,class:"form-control form-control-sm mt-1" ,id:"form-textfield" %>
+  </div>
+    <div class="field">
+    <%= f.check_box :completed ,class:"form-check-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class:"btn btn-dark btn-sm mt-1" %>
+  </div>
+<% end %>

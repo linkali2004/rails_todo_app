@@ -1,0 +1,11 @@
+
+<%= turbo_frame_tag dom_id(item) do%>
+      <li class="list-group-item d-flex justify-content-between mt-1" id = <%= dom_id(item) %> style="background:#191654;color:white;border:none;">
+      <small>Name: <%= item.name %></small>
+      <small>completed: <%= item.completed %></small>
+      <%= link_to 'Edit', edit_list_item_path(item.list, item),class:"btn btn-primary btn-sm" ,style:"background:#24243e;border:none;" %> 
+      <button class="btn btn-primary btn-sm"  style="background:#24243e;border:none;" data-reflex="click->Counter#deleteItem" data-id=<%= item.id%>>Delete</button>
+
+      </li>
+      <% end %>
+

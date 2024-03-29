@@ -1,0 +1,28 @@
+<div style="width:100%;height:calc(100vh - 80px);" class="d-flex flex-column align-items-center justify-content-center">
+
+<div class="card" style="width: 25rem;min-height:25rem;" id = "everything">
+  <div class="card-header">
+ <h5 class="card-title "><%= @list.title %></h5>
+  </div>
+    <div class="card-body">
+          <ul class="list-group list-group-flush">
+          <%= turbo_stream_from "items" %>
+          <%= turbo_frame_tag "items" do %>    
+  <% @list.items.each do |item| %>
+<%= render "items/item" ,item:item %>
+  <% end %>
+  <% end %>
+  </ul>
+<%= turbo_frame_tag "additemstag" do %>
+   <%= link_to 'Add Item', new_list_item_path(params[:id]),class:"btn btn-primary btn-sm mt-1" ,style:"background:#0f0c29;border:none;" %>
+   <% end %>
+  </div>
+   <div class="card-footer text-body-secondary">
+    <%= link_to "Edit", edit_list_path(@list) , class:"btn btn-primary btn-sm" ,style:"background:#24243e;border:none;"%>
+    <%= link_to "Delete", @list ,method: :delete, class:"btn btn-primary btn-sm" ,style:"background:#24243e;border:none;" , data:{turbo:false}%>
+  </div>
+</div>
+
+
+ <%= link_to "Back to lists", lists_path ,class:"btn btn-primary mt-4" ,style:"background:#24243e;border:none;" %>
+</div>

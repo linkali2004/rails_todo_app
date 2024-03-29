@@ -1,0 +1,23 @@
+
+<div style="width:100%;height:calc(100vh - 84px)" class="d-flex justify-content-center align-items-center">
+<div class="card" style="width: 28rem; min-height:30rem;" id = "lists-card">
+  <div class="card-header text-center">
+    Todo App
+  </div>
+  <div class="card-body" >
+    <h5 class="card-title display-6 text-center">Get Things Done!</h5>
+    <%= render "lists/form" ,list:List.new %>
+
+    <%= turbo_stream_from "lists"%>
+    <ul class="list-group mt-2">
+        <%= turbo_frame_tag "lists" do%>
+  <% @lists.each do |list| %>
+    <%= render list %>
+  <% end %>
+  <% end %>
+</ul>
+  </div>
+</div>
+</div>
+
+

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  : one
+  list: one
+  completed: false
+  completed_at: 2024-03-29 01:53:10
+  name: MyString
+
+two:
+  : two
+  list: two
+  completed: false
+  completed_at: 2024-03-29 01:53:10
+  name: MyString
