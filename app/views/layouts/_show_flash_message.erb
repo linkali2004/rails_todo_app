@@ -1,0 +1,11 @@
+
+<%= turbo_frame_tag "flash_messages" do %>
+<% if msg %>
+<div style="width:100%;" class="d-flex justify-content-center mt-2">
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong><%= msg %></strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+</div>
+<% end %>
+<% end %>

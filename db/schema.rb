@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_29_020354) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_30_040235) do
   create_table "items", force: :cascade do |t|
     t.integer "list_id", null: false
     t.boolean "completed"
@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_020354) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -48,4 +50,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_020354) do
   end
 
   add_foreign_key "items", "lists"
+  add_foreign_key "lists", "users"
 end

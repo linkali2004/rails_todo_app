@@ -14,3 +14,8 @@ export { application }
 document.addEventListener("customevent",(e)=>{
 window.location.href = e.detail.toString();
 })
+
+document.addEventListener('turbo:stream:created', function(event) {
+    alert("gi");
+   document.getElementById("form-textfield").value = ""
+  });

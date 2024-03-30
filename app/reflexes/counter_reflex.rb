@@ -13,4 +13,11 @@ class CounterReflex < ApplicationReflex
         ele = Item.find(element.dataset.id)
         ele.destroy
     end
+
+    def clear
+        cable_ready["resp"].set_value(selector:"#form-textfield",value:"")
+        selector_all("#form-textfield").each do |element|
+            element.set_attribute("value", "new value")
+          end
+    end
 end
